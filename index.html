@@ -72,6 +72,7 @@
     <div class="main-title">
         <h1>Welcome to BloomAIR</h1>
         <h2>Where Nature Meets Intelligence, using Artificial Intelligence for Restoration</h2>
+        <p style="text-align:center; font-style: italic;">🐝 Click anywhere to wake up the bees!</p>
     </div>
 
     <div class="footer">
@@ -118,10 +119,10 @@
       });
     }
     // Remove the event listener after first play
-    document.removeEventListener("mousemove", playBuzzOnce);
+    document.removeEventListener("click", playBuzzOnce);
   }
 
-  document.addEventListener("mousemove", playBuzzOnce);
+  document.addEventListener("click", playBuzzOnce);
 </script>
 
 

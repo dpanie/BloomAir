@@ -110,24 +110,18 @@
     
 <audio id="beeBuzz" src="buzz.m4a" preload="auto"></audio>
 <script>
-  window.addEventListener("DOMContentLoaded", () => {
+  function playBuzzOnce() {
     const buzz = document.getElementById("beeBuzz");
     if (buzz) {
-      // Wait a short moment after page loads
-      setTimeout(() => {
-        // Play sound
-        buzz.play().then(() => {
-          // Stop it after 2 seconds
-          setTimeout(() => {
-            buzz.pause();
-            buzz.currentTime = 0; // Reset for next time
-          }, 2000); // 2000 ms = 2 seconds
-        }).catch((err) => {
-          console.log("Autoplay blocked:", err);
-        });
-      }, 500);
+      buzz.play().catch(e => {
+        console.log("Still blocked:", e);
+      });
     }
-  });
+    // Remove the event listener after first play
+    document.removeEventListener("click", playBuzzOnce);
+  }
+
+  document.addEventListener("click", playBuzzOnce);
 </script>
 
 

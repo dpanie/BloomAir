@@ -107,5 +107,29 @@
       }
     })();
   </script>
+    
+<audio id="beeBuzz" src="sounds/buzz.mp3" preload="auto"></audio>
+<script>
+  window.addEventListener("DOMContentLoaded", () => {
+    const buzz = document.getElementById("beeBuzz");
+    if (buzz) {
+      // Wait a short moment after page loads
+      setTimeout(() => {
+        // Play sound
+        buzz.play().then(() => {
+          // Stop it after 2 seconds
+          setTimeout(() => {
+            buzz.pause();
+            buzz.currentTime = 0; // Reset for next time
+          }, 2000); // 2000 ms = 2 seconds
+        }).catch((err) => {
+          console.log("Autoplay blocked:", err);
+        });
+      }, 500);
+    }
+  });
+</script>
+
+
 </body>
 </html>

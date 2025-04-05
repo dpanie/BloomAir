@@ -145,14 +145,14 @@
   .flying-bee {
     position: absolute;
     top: 40%;
-    left: -50px;
+    left: 100vw; /* Start from right side of screen */
     font-size: 2rem;
     z-index: 1000;
     animation: flyBeeX 20s linear infinite, flyBeeY 2s ease-in-out infinite alternate;
     pointer-events: none;
   }
 
-/* Bee flies from right to left */
+  /* Move from right to left */
   @keyframes flyBeeX {
     0% {
       left: 100vw;
@@ -162,7 +162,7 @@
     }
   }
 
-  /* Vertical up and down movement */
+  /* Float up and down like buzzing */
   @keyframes flyBeeY {
     0% {
       transform: translateY(-20px) rotate(-10deg);
@@ -175,6 +175,7 @@
     }
   }
 </style>
+
 
 </body>
 </html>

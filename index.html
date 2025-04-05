@@ -134,8 +134,19 @@
     // Remove the event listener after first play
     document.removeEventListener("click", playBuzzOnce);
   }
+    
+  function playBuzzOnClick() {
+    const buzz = document.getElementById("beeBuzz");
+    if (buzz) {
+      buzz.currentTime = 0; // Rewind to start so it can replay quickly
+      buzz.play().catch(e => {
+        console.log("Audio play was blocked:", e);
+      });
+    }
+  }
+  // document.addEventListener("click", playBuzzOnce);
+  document.addEventListener("click", playBuzzOnClick);
 
-  document.addEventListener("click", playBuzzOnce);
 </script>
 
 

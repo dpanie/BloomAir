@@ -124,19 +124,35 @@
     
 <audio id="beeBuzz" src="buzz.m4a" preload="auto"></audio>
 <script>
-  function playBuzzOnce() {
+  // Start buzzing when the animation starts
+  function playBuzzLoop() {
     const buzz = document.getElementById("beeBuzz");
-    if (buzz) {
-      buzz.play().catch(e => {
-        console.log("Still blocked:", e);
-      });
-    }
-    // Remove the event listener after first play
-    document.removeEventListener("click", playBuzzOnce);
+    if (!buzz) return;
+
+    // Play the sound every 20 seconds (same as animation duration)
+    buzz.play().catch(err => {
+      console.log("Autoplay blocked. Waiting for user interaction.");
+      // If autoplay is blocked, wait for a user click
+      document.addEventListener("click", () => {
+        buzz.play();
+        setInterval(() => {
+          buzz.currentTime = 0;
+          buzz.play();
+        }, 20000);
+      }, { once: true });
+    });
+
+    // If it plays fine, loop manually every 20 seconds
+    setInterval(() => {
+      buzz.currentTime = 0;
+      buzz.play();
+    }, 20000);
   }
 
-  document.addEventListener("click", playBuzzOnce);
+  // Start buzzing after the page fully loads
+  window.addEventListener("load", playBuzzLoop);
 </script>
+
     
 <!-- Flying Bee -->
 <div class="flying-bee">🐝</div>

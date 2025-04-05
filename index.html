@@ -137,6 +137,7 @@
 
   document.addEventListener("click", playBuzzOnce);
 </script>
+    
 <!-- Flying Bee -->
 <div class="flying-bee">🐝</div>
 
@@ -146,49 +147,34 @@
     top: 40%;
     left: -50px;
     font-size: 2rem;
-    animation: flyBee 20s linear infinite;
     z-index: 1000;
+    animation: flyBeeX 20s linear infinite, flyBeeY 2s ease-in-out infinite alternate;
     pointer-events: none;
   }
 
-  @keyframes flyBee {
+  /* Horizontal flight (slower) */
+  @keyframes flyBeeX {
     0% {
-      transform: translate(0, 0) rotate(0deg);
-    }
-    10% {
-      transform: translate(10vw, -20px) rotate(10deg);
-    }
-    20% {
-      transform: translate(20vw, 15px) rotate(-10deg);
-    }
-    30% {
-      transform: translate(30vw, -25px) rotate(5deg);
-    }
-    40% {
-      transform: translate(40vw, 20px) rotate(-5deg);
-    }
-    50% {
-      transform: translate(50vw, -10px) rotate(10deg);
-    }
-    60% {
-      transform: translate(60vw, 10px) rotate(-10deg);
-    }
-    70% {
-      transform: translate(70vw, -20px) rotate(5deg);
-    }
-    80% {
-      transform: translate(80vw, 15px) rotate(-5deg);
-    }
-    90% {
-      transform: translate(90vw, -15px) rotate(0deg);
+      left: -50px;
     }
     100% {
-      transform: translate(100vw, 0) rotate(0deg);
+      left: 100vw;
+    }
+  }
+
+  /* Vertical up and down movement */
+  @keyframes flyBeeY {
+    0% {
+      transform: translateY(-20px) rotate(-10deg);
+    }
+    50% {
+      transform: translateY(20px) rotate(10deg);
+    }
+    100% {
+      transform: translateY(-20px) rotate(-10deg);
     }
   }
 </style>
-
-
 
 </body>
 </html>

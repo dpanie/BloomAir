@@ -143,25 +143,51 @@
 <style>
   .flying-bee {
     position: absolute;
-    top: 20%;
+    top: 40%;
     left: -50px;
     font-size: 2rem;
-    animation: flyBee 10s linear infinite;
+    animation: flyBee 20s linear infinite;
     z-index: 1000;
+    pointer-events: none;
   }
 
   @keyframes flyBee {
     0% {
-      transform: translateX(0) rotate(0deg);
+      transform: translate(0, 0) rotate(0deg);
+    }
+    10% {
+      transform: translate(10vw, -20px) rotate(10deg);
+    }
+    20% {
+      transform: translate(20vw, 15px) rotate(-10deg);
+    }
+    30% {
+      transform: translate(30vw, -25px) rotate(5deg);
+    }
+    40% {
+      transform: translate(40vw, 20px) rotate(-5deg);
     }
     50% {
-      transform: translateX(100vw) translateY(-20px) rotate(360deg);
+      transform: translate(50vw, -10px) rotate(10deg);
+    }
+    60% {
+      transform: translate(60vw, 10px) rotate(-10deg);
+    }
+    70% {
+      transform: translate(70vw, -20px) rotate(5deg);
+    }
+    80% {
+      transform: translate(80vw, 15px) rotate(-5deg);
+    }
+    90% {
+      transform: translate(90vw, -15px) rotate(0deg);
     }
     100% {
-      transform: translateX(0) rotate(0deg);
+      transform: translate(100vw, 0) rotate(0deg);
     }
   }
 </style>
+
 
 
 </body>

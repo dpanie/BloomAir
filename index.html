@@ -84,7 +84,7 @@
             font-size: 1rem;
             text-align: center;
               ">
-            🐝 Click anywhere to wake up the bees!
+            Click anywhere to wake up the bees!
   </div>
     </div>
 
@@ -124,30 +124,19 @@
     
 <audio id="beeBuzz" src="buzz.m4a" preload="auto"></audio>
 <script>
-  // Start buzzing when the animation starts
-  function playBuzzLoop() {
+  function playBuzzOnce() {
     const buzz = document.getElementById("beeBuzz");
-    if (!buzz) return;
-
-    // Play the sound every 20 seconds (same as animation duration)
-    buzz.play().catch(err => {
-      console.log("Autoplay blocked. Waiting for user interaction.");
-      // If autoplay is blocked, wait for a user click
-      document.addEventListener("click", () => {
-        buzz.play();
-        setInterval(() => {
-          buzz.currentTime = 0;
-          buzz.play();
-        }, 20000);
-      }, { once: true });
-    });
-
-    // If it plays fine, loop manually every 20 seconds
-    setInterval(() => {
-      buzz.currentTime = 0;
-      buzz.play();
-    }, 20000);
+    if (buzz) {
+      buzz.play().catch(e => {
+        console.log("Still blocked:", e);
+      });
+    }
+    // Remove the event listener after first play
+    document.removeEventListener("click", playBuzzOnce);
   }
+
+  document.addEventListener("click", playBuzzOnce);
+</script>
 
   // Start buzzing after the page fully loads
   window.addEventListener("load", playBuzzLoop);

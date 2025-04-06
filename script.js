@@ -1,6 +1,23 @@
 // See ChatGPT Real-time Data and Forms to change the below based on how you code the io platform
 
 document.addEventListener('DOMContentLoaded', () => {
+    // === Insect DOM Elements and Chart ===
+    const insectCountElement = document.getElementById('insectCount');
+    const insectCtx = document.getElementById('insectChart')?.getContext('2d');
+    const insectChart = new Chart(insectCtx, {
+        type: 'line',
+        data: {
+         labels: [],
+         datasets: [
+                {
+                    label: 'Average Ant Count',
+                    data: [],
+                    borderColor: 'darkgreen',
+                    fill: false
+                }
+         ]
+        }
+    });
     // Real-Time Data Elements
     const temperatureElement = document.querySelector('.conditions-container p:nth-child(2) span');
     const humidityElement = document.querySelector('.conditions-container p:nth-child(3) span');
@@ -71,6 +88,29 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
     
+    // === Load Insect History from JSON ===
+    fetch('data/insect_history.json')
+    .then(response => response.json())
+    .then(history => {
+        if (history && history.length > 0) {
+            // Update chart
+            history.forEach(entry => {
+                insectChart.data.labels.push(entry.timestamp);
+                insectChart.data.datasets[0].data.push(entry.average);
+            });
+            insectChart.update();
+
+            // Update latest count
+            const latest = history[history.length - 1];
+            if (insectCountElement) {
+                insectCountElement.innerText = `${latest.average} (±${latest.std_dev})`;
+            }
+        }
+    })
+    .catch(err => {
+        console.error("Failed to load insect data:", err);
+    });
+
 
     // Update data every 5 seconds
     setInterval(fetchSensorData, 5000);

@@ -18,6 +18,7 @@
         .data-section p, .chart-section p {
             text-align: left;
         }
+        
         .chart-section canvas {
             max-width: 100%;
             height: auto;
@@ -93,11 +94,17 @@
             <p><strong>CO₂:</strong> <span>-- ppm</span></p>
             <p><strong>Particulate Matter:</strong> <span>-- µm</span></p>
             <p><strong>Noise:</strong> <span>-- dB</span></p>
+            <p><strong>Insect Count:</strong> <span id="insectCount">--</span></p>
         </div>
 
         <div class="chart-section">
             <h2>Sensor Data Over Time</h2>
             <canvas id="sensorChart" width="400" height="200"></canvas>
+        </div>
+
+        <div class="chart-section">
+            <h2>Insect Activity Over Time</h2>
+            <canvas id="insectChart" width="400" height="200"></canvas>
         </div>
         
         <div class="data-section">

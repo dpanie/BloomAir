@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>How We Count Insects</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            font-family: sans-serif;
+            line-height: 1.6;
+            padding: 20px;
+        }
+        .video-wrapper {
+            max-width: 640px;
+            margin: 20px auto;
+            text-align: center;
+        }
+        iframe, video {
+            width: 100%;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="buttons">
+            <a href="index.html">Home</a>
+            <a href="contact.html">Contact</a>
+            <a href="why_bloomair.html">Why BloomAIR</a>
+            <a href="native_insects.html">Native Insects</a>
+            <a href="native_plants.html">Native Plants</a>
+            <a href="real_time_data.html">Real Time Data</a>
+            <a href="what_to_do.html">What to Do</a>
+        </div>
+    </header>
+
+    <h1>How We Count Insects Using Computer Vision 🧠📹🐜</h1>
+    <p>
+        We use a small camera — a <strong>Wyze Outdoor Cam</strong> — to record videos of the insects in your garden or park.
+        Then, we use a special program written in Python that looks at each frame of the video.
+    </p>
+    <p>
+        This program uses <strong>computer vision</strong>, which means it can "see" moving insects, like your eyes do. It works like this:
+    </p>
+    <ul>
+        <li>It turns the video into black and white to focus on movement</li>
+        <li>Then it detects moving blobs (we trained the program indoor with ants!)</li>
+        <li>It draws green boxes around them so we know where they are</li>
+        <li>It counts how many are seen in each frame</li>
+        <li>Finally, it calculates the average number of ants in the whole video</li>
+    </ul>
+    <p>Here’s what that looks like 👇</p>
+
+    <div class="video-wrapper">
+        <video controls>
+            <source src="videos/ant_detection_demo.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+
+    <p>Pretty cool, right? And all of this is done without harming a single insect. 🐞</p>
+</body>
+</html>

@@ -95,9 +95,21 @@ document.addEventListener('DOMContentLoaded', () => {
         if (history && history.length > 0) {
             // Update chart
             history.forEach(entry => {
-                insectChart.data.labels.push(entry.timestamp);
+                const ts = entry.timestamp; // e.g. "04062136"
+                const month = parseInt(ts.slice(0, 2), 10);
+                const day = parseInt(ts.slice(2, 4), 10);
+                const hour = parseInt(ts.slice(4, 6), 10);
+                const minute = ts.slice(6, 8);
+
+                const ampm = hour >= 12 ? 'PM' : 'AM';
+                const hour12 = hour % 12 === 0 ? 12 : hour % 12;
+
+                const label = `${new Date(2024, month - 1, day).toLocaleString('en-US', { month: 'short' })} ${day} ${hour12}:${minute} ${ampm}`;
+
+                insectChart.data.labels.push(label);
                 insectChart.data.datasets[0].data.push(entry.average);
             });
+
             insectChart.update();
 
             // Update latest count

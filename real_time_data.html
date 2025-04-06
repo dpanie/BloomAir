@@ -15,6 +15,7 @@
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             margin-top: 20px;
         }
+
         .data-section p, .chart-section p {
             text-align: left;
         }
@@ -65,6 +66,24 @@
             margin: 5px 0;
             font-size: 0.9rem;
         }
+        .insect-explainer-bubble {
+            position: absolute;
+            top: 580px; /* Adjust if needed based on chart height */
+            right: 20px;
+            width: 220px;
+            background-color: #eaf9ff;
+            border-left: 5px solid #2c98f0;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            font-size: 0.9rem;
+        }
+
+        .insect-explainer-bubble a {
+            text-decoration: none;
+            color: #2c98f0;
+            font-weight: bold;
+        }
     </style>
 </head>
 <body>
@@ -106,6 +125,10 @@
             <h2>Insect Activity Over Time</h2>
             <canvas id="insectChart" width="400" height="200"></canvas>
         </div>
+        <div class="insect-explainer-bubble">
+            🦋 Wonder how we counted the insects?<br>
+            👉 <a href="how_we_count.html">Click here to learn how we used computer vision!</a>
+        </div>        
         
         <div class="data-section">
             <h2>Photos of Yesterday - <span id="yesterdayDate"></span></h2>

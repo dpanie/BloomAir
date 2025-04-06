@@ -2,86 +2,49 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Real Time Data - BloomAir</title>
+    <title>How We Count Insects</title>
     <link rel="stylesheet" href="style.css">
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="script.js" defer></script>
     <style>
-        .data-section, .chart-section {
-            background-color: #ffffff;
+        body {
+            font-family: sans-serif;
+            line-height: 1.6;
             padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            margin-top: 20px;
         }
 
-        .data-section p, .chart-section p {
-            text-align: left;
-        }
-        
-        .chart-section canvas {
-            max-width: 100%;
-            height: auto;
-        }
-        .placeholder-info {
-            background-color: #f8f9fa;
-            border-left: 5px solid #4CAF50;
-            padding: 15px;
-            margin-top: 20px;
-            text-align: left;
-            font-style: italic;
-        }
-        .carousel {
+        .video-section {
             display: flex;
-            overflow-x: auto;
-            gap: 15px;
-            padding: 10px 0;
+            flex-wrap: wrap;
+            gap: 30px;
+            align-items: center;
+            justify-content: center;
+            margin-top: 30px;
         }
-        .carousel img {
-            width: 200px;
-            border-radius: 10px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-        }
-        .last-updated {
-            margin-top: 10px;
-            font-size: 0.9em;
-            color: #666;
-        }
-        .conditions-container {
-            position: absolute;
-            top: 100px;
-            right: 20px;
-            background-color: #ffffff;
-            padding: 10px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            width: 200px;
-            text-align: left;
-        }
-        .conditions-container h2 {
+
+        .text {
+            flex: 1 1 300px;
+            max-width: 500px;
             font-size: 1rem;
         }
-        .conditions-container p {
-            margin: 5px 0;
-            font-size: 0.9rem;
-        }
-        .insect-explainer-bubble {
-            position: absolute;
-            top: 1240px; /* Adjust this value if needed to align with "Insect Activity" */
-            right: 20px;
-            width: 240px;
-            background-color: #fff9db; /* pale yellow */
-            border-left: 5px solid #4bc469;
-            padding: 15px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            font-size: 0.9rem;
+
+        .video-box {
+            flex: 1 1 300px;
+            max-width: 640px;
         }
 
-        .insect-explainer-bubble a {
+        video {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .buttons {
+            margin-bottom: 20px;
+        }
+
+        .buttons a {
+            margin-right: 10px;
             text-decoration: none;
-            color: #054e31;
+            color: #2c3e50;
             font-weight: bold;
         }
     </style>
@@ -98,82 +61,38 @@
         </div>
     </header>
 
-    <div class="content">
-        <h1>Real Time Data</h1>
-        <p>Use AI on live data from our environmental sensors monitoring our ecosystem.</p>
+    <h1>How We Count Insects Using Computer Vision 🧠📹🐜</h1>
 
-        <div class="placeholder-info">
-            <p><strong>Note:</strong> Real-time data is currently unavailable. This page is in development and will be connected to sensors soon.</p>
+    <p>
+        We use a small camera — a <strong>Wyze Outdoor Cam</strong> — to record videos of the insects in your garden or park.
+        Then, we use a special program written in Python that looks at each frame of the video.
+    </p>
+
+    <p>
+        This program uses <strong>computer vision</strong>, which means it can "see" moving insects, like your eyes do. It works like this:
+    </p>
+
+    <ul>
+        <li>It turns the video into black and white to focus on movement</li>
+        <li>Then it detects moving blobs (we trained the program indoors with ants!)</li>
+        <li>It draws green boxes around them so we know where they are</li>
+        <li>It counts how many are seen in each frame</li>
+        <li>Finally, it calculates the average number of ants in the whole video</li>
+    </ul>
+
+    <!-- 📹 Side-by-side video and summary -->
+    <div class="video-section">
+        <div class="text">
+            <p><strong>Here’s what it looks like when the computer "sees" ants:</strong></p>
+            <p>Pretty cool, right? And all of this is done without harming a single insect. 🐞</p>
         </div>
 
-        <div class="conditions-container">
-            <h2>Current Conditions</h2>
-            <p><strong>Temperature:</strong> <span>-- °C</span></p>
-            <p><strong>Humidity:</strong> <span>-- %</span></p>
-            <p><strong>CO₂:</strong> <span>-- ppm</span></p>
-            <p><strong>Particulate Matter:</strong> <span>-- µm</span></p>
-            <p><strong>Noise:</strong> <span>-- dB</span></p>
-            <p><strong>Insect Count:</strong> <span id="insectCount">--</span></p>
+        <div class="video-box">
+            <video controls autoplay muted playsinline>
+                <source src="videos/ant_detection_web.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
         </div>
-
-        <div class="chart-section">
-            <h2>Sensor Data Over Time</h2>
-            <canvas id="sensorChart" width="400" height="200"></canvas>
-        </div>
-
-        <div class="chart-section">
-            <h2>Insect Activity Over Time</h2>
-            <canvas id="insectChart" width="400" height="200"></canvas>
-        </div>
-
-        <div class="insect-explainer-bubble">
-            🦋 Wonder how we counted the insects?<br>
-            👉 <a href="how_we_count.html">Click here to learn how we used computer vision!</a>
-        </div>        
-        
-        <div class="data-section">
-            <h2>Photos of Yesterday - <span id="yesterdayDate"></span></h2>
-            <div id="yesterdayGallery" class="carousel">
-                <!-- Photos from yesterday will be displayed here -->
-            </div>
-        
-            <h2>Photos of Today - <span id="todayDate"></span></h2>
-            <div id="todayGallery" class="carousel">
-                <!-- Photos from today will be displayed here -->
-            </div>
-        </div>
-
-<script>
-    document.addEventListener('DOMContentLoaded', function () {
-        function loadImages(folder, galleryId) {
-            const gallery = document.getElementById(galleryId);
-            gallery.innerHTML = ""; // Clear current content
-
-            const images = [
-                `${folder}/image1.jpg`,
-                `${folder}/image2.jpg`,
-                `${folder}/image3.jpg`
-            ]; // Add image filenames as needed
-
-            images.forEach(src => {
-                const img = document.createElement('img');
-                img.src = src;
-                gallery.appendChild(img);
-            });
-        }
-
-        function formatDate(daysAgo) {
-            const date = new Date();
-            date.setDate(date.getDate() - daysAgo);
-            return date.toLocaleDateString();
-        }
-
-        document.getElementById('yesterdayDate').innerText = formatDate(1);
-        document.getElementById('todayDate').innerText = formatDate(0);
-
-        loadImages('photos of yesterday', 'yesterdayGallery');
-        loadImages('photos of today', 'todayGallery');
-    });
-</script>
+    </div>
 </body>
 </html>

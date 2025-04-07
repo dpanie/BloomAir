@@ -1,98 +1,139 @@
+<!-- Todo: modify text -->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>How We Count Insects</title>
-    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How We Count Insects - BloomAir</title>
     <style>
         body {
-            font-family: sans-serif;
-            line-height: 1.6;
+            font-family: Arial, sans-serif;
+            background-color: #f0f8ff;
+            color: #333;
+            text-align: center;
+            margin: 0;
             padding: 20px;
         }
-
-        .video-section {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 30px;
-            align-items: center;
-            justify-content: center;
-            margin-top: 30px;
+        header { 
+            background-color: rgba(0, 0, 0, 0.6); 
+            padding: 1rem; 
         }
-
-        .text {
-            flex: 1 1 300px;
-            max-width: 500px;
-            font-size: 1rem;
+        .buttons a { 
+            display: inline-block; 
+            padding: 12px 24px; 
+            margin: 5px;
+            background-color: #4CAF50; 
+            color: #fff; 
+            text-decoration: none; 
+            border-radius: 5px; 
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
         }
-
-        .video-box {
-            flex: 1 1 300px;
-            max-width: 640px;
+        .buttons a:hover {
+            background-color: #45a049;
         }
-
-        video {
-            width: 100%;
+        .content {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: left;
+            background-color: #fff;
+            padding: 20px;
             border-radius: 10px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
+        .container {
+      display: flex;
+      gap: 40px;
+      padding: 30px;
+    }
 
-        .buttons {
-            margin-bottom: 20px;
-        }
+    .section {
+      flex: 1;
+      background-color: #ffffff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      text-align: justify;
+    }
 
-        .buttons a {
-            margin-right: 10px;
-            text-decoration: none;
-            color: #2c3e50;
-            font-weight: bold;
-        }
+    .video-box {
+      flex: 1;
+      max-width: 600px;
+      background-color: #ffffff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+    }
+
+    video {
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
     </style>
 </head>
 <body>
     <header>
         <div class="buttons">
             <a href="index.html">Home</a>
-            <a href="why_bloomair.html">About BloomAir</a>
+            <a href="contact.html">Contact</a>
+            <a href="why_bloomair.html">Why BloomAIR</a>
             <a href="native_insects.html">Native Insects</a>
             <a href="native_plants.html">Native Plants</a>
             <a href="real_time_data.html">Real Time Data</a>
-            <a href="what_to_do.html">Join the Buzz</a>
+            <a href="what_to_do.html">What to Do</a>
         </div>
     </header>
 
-    <h1>How We Count Insects Using Computer Vision 🧠📹🐜</h1>
+ <!-- Title -->
+ <h1 class="page-title">How We Count Insects Using Computer Vision 🧠📹🐜</h1>
 
-    <p>
-        We use a small camera — a <strong>Wyze Outdoor Cam</strong> — to record videos of the insects in your garden or park.
-        Then, we use a special program written in Python that looks at each frame of the video.
-    </p>
+ <!-- Content Split -->
+ <div class="container">
+   <!-- Left Section -->
+   <div class="section">
+     <p>
+       We use a small camera — a <strong>Wyze Outdoor Cam</strong> — to record videos of the insects in your garden or park.
+       Then, we use a special program written in Python that looks at each frame of the video.
+     </p>
 
-    <p>
-        This program uses <strong>computer vision</strong>, which means it can "see" moving insects, like your eyes do. It works like this:
-    </p>
+     <p>
+       This program uses <strong>computer vision</strong>, which means it can "see" moving insects, like your eyes do. It works like this:
+     </p>
 
-    <ul>
-        <li>It turns the video into black and white to focus on movement</li>
-        <li>Then it detects moving blobs (we trained the program indoors with ants!)</li>
-        <li>It draws green boxes around them so we know where they are</li>
-        <li>It counts how many are seen in each frame</li>
-        <li>Finally, it calculates the average number of ants in the whole video</li>
-    </ul>
+     <ul>
+       <li>It turns the video into black and white to focus on movement</li>
+       <li>Then it detects moving blobs (we trained the program indoors with ants!)</li>
+       <li>It draws green boxes around them so we know where they are</li>
+       <li>It counts how many are seen in each frame</li>
+       <li>Finally, it calculates the average number of ants in the whole video</li>
+     </ul>
 
-    <!-- 📹 Side-by-side video and summary -->
-    <div class="video-section">
-        <div class="text">
-            <p><strong>Here’s what it looks like when the computer "sees" ants:</strong></p>
-            <p>Pretty cool, right? And all of this is done without harming a single insect. 🐞</p>
-        </div>
+     <p><strong>Here’s what it looks like when the computer "sees" ants 👉</strong></p>
+     <p>Pretty cool, right? And all of this is done without harming a single insect. 🐞</p>
+   </div>
 
-        <div class="video-box">
-            <video controls autoplay muted playsinline>
-                <source src="videos/ant_detection_web.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
-        </div>
-    </div>
+   <!-- Right Section -->
+   <div class="video-box">
+     <video controls autoplay muted playsinline>
+       <source src="videos/ant_detection_web.mp4" type="video/mp4" />
+       Your browser does not support the video tag.
+     </video>
+   </div>
+ </div>
 </body>
 </html>
+
+
+

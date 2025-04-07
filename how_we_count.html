@@ -104,23 +104,29 @@
    <!-- Left Section -->
    <div class="section">
      <p>
-       We use a small camera — a <strong>Wyze Outdoor Cam</strong> — to record videos of the insects in your garden or park.
-       Then, we use a special program written in Python that looks at each frame of the video.
-     </p>
+      We use a small camera — a <strong>Wyze Outdoor Cam</strong> — to record videos of the insects in your garden or park.
+      Then, we use a special program written in Python to look through each frame of the video.
+    </p>
 
-     <p>
-       This program uses <strong>computer vision</strong>, which means it can "see" moving insects, like your eyes do. It works like this:
-     </p>
+    <p>
+      This program uses something called <strong>computer vision</strong> — it helps the computer “see” movement in videos, kind of like how your eyes notice something that suddenly moves.
+    </p>
 
-     <ul>
-       <li>It turns the video into black and white to focus on movement</li>
-       <li>Then it detects moving blobs (we trained the program indoors with ants!)</li>
-       <li>It draws green boxes around them so we know where they are</li>
-       <li>It counts how many are seen in each frame</li>
-       <li>Finally, it calculates the average number of ants in the whole video</li>
-     </ul>
+    <p><strong>Here’s how it works:</strong></p>
 
-     <p><strong>Here’s what it looks like when the computer "sees" ants 👉</strong></p>
+    <ul>
+      <li>It first figures out what doesn't move — like dirt or leaves — and treats that as the background</li>
+      <li>Then, it watches for tiny changes — those are the insects moving across the scene!</li>
+      <li>The video is turned into black and white to make movement easier to spot</li>
+      <li>When it sees something moving, it draws green boxes around it to track it</li>
+      <li>It keeps counting how many insects it sees in each frame</li>
+      <li>At the end, it gives us the average number of insects that appeared in the video</li>
+    </ul>
+
+    <p><strong>🐜 It's like giving the computer a pair of digital bug-spotting goggles!</strong></p>
+
+
+     <p>Here’s what it looks like when the computer "sees" ants 👉</p>
      <p>Pretty cool, right? And all of this is done without harming a single insect. 🐞</p>
    </div>
 

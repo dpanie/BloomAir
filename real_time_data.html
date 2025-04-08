@@ -6,7 +6,7 @@
     <title>Real Time Data - BloomAir</title>
     <link rel="stylesheet" href="style.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="script.js" defer></script>
+    <script src="rtscript.js" defer></script>
     <style>
         .data-section, .chart-section {
             background-color: #ffffff;
@@ -32,6 +32,7 @@
             text-align: left;
             font-style: italic;
         }
+
         .carousel {
             display: flex;
             overflow-x: auto;
@@ -49,7 +50,7 @@
             color: #666;
         }
         .conditions-container {
-            position: absolute;
+            position: static;
             top: 100px;
             right: 20px;
             background-color: #ffffff;
@@ -67,7 +68,7 @@
             font-size: 0.9rem;
         }
         .insect-explainer-bubble {
-            position: absolute;
+            position: static;
             top: 1500px; /* Adjust this value if needed to align with "Insect Activity" */
             right: 20px;
             width: 240px;
@@ -78,7 +79,6 @@
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             font-size: 0.9rem;
         }
-
         .insect-explainer-bubble a {
             text-decoration: none;
             color: #054e31;
@@ -87,16 +87,9 @@
     </style>
 </head>
 <body>
-    <header>
-        <div class="buttons">
-            <a href="index.html">Home</a>
-            <a href="contact.html">Contact</a>
-            <a href="why_bloomair.html">About BloomAir</a>
-            <a href="native_insects.html">Native Insects</a>
-            <a href="native_plants.html">Native Plants</a>
-            <a href="what_to_do.html">Join the Buzz</a>
-        </div>
-    </header>
+        <site-header></site-header>
+        <script src="components.js"></script>
+
 
     <div class="content">
         <h1>Real Time Data</h1>
@@ -143,37 +136,6 @@
             </div>
         </div>
 
-<script>
-    document.addEventListener('DOMContentLoaded', function () {
-        function loadImages(folder, galleryId) {
-            const gallery = document.getElementById(galleryId);
-            gallery.innerHTML = ""; // Clear current content
 
-            const images = [
-                `${folder}/image1.jpg`,
-                `${folder}/image2.jpg`,
-                `${folder}/image3.jpg`
-            ]; // Add image filenames as needed
-
-            images.forEach(src => {
-                const img = document.createElement('img');
-                img.src = src;
-                gallery.appendChild(img);
-            });
-        }
-
-        function formatDate(daysAgo) {
-            const date = new Date();
-            date.setDate(date.getDate() - daysAgo);
-            return date.toLocaleDateString();
-        }
-
-        document.getElementById('yesterdayDate').innerText = formatDate(1);
-        document.getElementById('todayDate').innerText = formatDate(0);
-
-        loadImages('photos of yesterday', 'yesterdayGallery');
-        loadImages('photos of today', 'todayGallery');
-    });
-</script>
 </body>
 </html>

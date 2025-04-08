@@ -1,17 +1,27 @@
+.bee-alert {
+    background-color: white;
+    color: black;
+    padding: 1rem;
+    margin: 1rem auto;
+    width: fit-content;
+    max-width: 90%;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    font-style: italic;
+    font-size: 1rem;
+    text-align: center;
+}
 body {
     font-family: Arial, sans-serif;
     background-color: #f0fff8;
     color: #333;
     text-align: center;
     margin: 0;
-    padding: 20px;
+    padding: 0; /*change*/
 }
-
-header {
-    background-color: rgba(0, 0, 0, 0.6);
-    padding: 1rem;
+.buttons { 
+    margin: 10px 0; 
 }
-
 .buttons a {
     display: inline-block;
     padding: 12px 24px;
@@ -22,20 +32,96 @@ header {
     border-radius: 5px;
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
 }
-
 .buttons a:hover {
     background-color: #45a049;
 }
-
+.contact-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 60px;
+    padding: 60px 40px;
+  }  
+.container {
+    display: flex;
+    gap: 30px;
+}
+.text-container {
+    max-width: 400px;
+    width: 100%;
+    padding: 0 10px;
+    text-align: center;
+}  
+.image-container img {
+    max-width: 400px;
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}  
 .content {
     max-width: 1100px;
     margin: 20px auto;
+    margin-top: 10vh; /* same spacing as .main-title on index */
+    margin-bottom: 30px; /*change*/
     background-color: #ffffff;
     padding: 30px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
-
+.footer {
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 1rem;
+    font-size: 0.9rem;
+    color: white;
+    text-align: center;
+}
+header {
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 1rem;
+}
+.insect {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 20px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    padding: 15px;
+    border-radius: 10px;
+}
+.insect img {
+    width: 100px;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    flex-shrink: 0;
+} 
+.insect div {
+    flex: 1;
+    font-size: 1rem;
+    line-height: 1.5;
+}
+.image-section {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 20px;
+}
+.main-title {
+    margin-top: 10vh;
+}
+.main-title h1 {
+    font-size: 4rem;
+    color: #fff; /* Changed text color to white for better contrast */
+}
+.main-title h2 {
+    font-size: 1.5rem;
+    color: #fff; /* Changed text color to white for better contrast */
+}
+.minor-images {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
 .monarch-info {
     display: flex;
     align-items: center;
@@ -47,18 +133,58 @@ header {
     text-align: left;
     margin-bottom: 20px;
 }
-
 .monarch-info img {
     width: 60px;
     height: 60px;
     border-radius: 50%;
 }
-
-.container {
-    display: flex;
-    gap: 30px;
+.nativecontent {
+    max-width: 1000px;
+    margin: 0 auto;
+    text-align: left;
+    padding: 20px;
+    background-color: #fff;
+    color: #000;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
-
+.plant {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 20px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    padding: 15px;
+    border-radius: 10px;
+}
+.plant img {
+    width: 100px;
+    height: auto;
+    border-radius: 10px;
+    flex-shrink: 0;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+.plant div {
+    flex: 1;
+    font-size: 1rem;
+    line-height: 1.6;
+}
+.pollinator {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 20px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    padding: 15px;
+    border-radius: 10px;
+}
+.pollinator img {
+    width: 100px;
+    height: auto;
+    border-radius: 8px;
+}
 .section {
     flex: 1;
     background-color: #ffffff;
@@ -66,3 +192,92 @@ header {
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
+
+
+@media (max-width: 768px) {
+    .bee-alert {
+        font-size: 0.95rem;
+        padding: 0.75rem;
+    }
+    .carousel img {
+        width: 150px;
+        max-width: 100%;
+        height: auto;
+    }    
+    .chart-section,
+    .data-section {
+      padding: 15px;
+    }
+    .conditions-container,
+    .insect-explainer-bubble {
+      position: static;
+      width: 100%;
+      margin-top: 20px;
+    }
+    .container {
+        flex-direction: column;
+        padding: 20px;
+        gap: 20px;
+    }
+    .content,
+    .submission,
+    .carousel {
+        padding: 15px;
+    }
+    .footer {
+        font-size: 0.8rem;
+    }
+    form input,
+    form textarea {
+        font-size: 1rem;
+    }
+    h1 {
+        font-size: 2rem;
+    } 
+    h2 {
+        font-size: 1.2rem;
+    }
+    .image-section {
+        grid-template-columns: 1fr;
+    }
+    .minor-images {
+        grid-template-columns: 1fr 1fr;
+    }
+    .page-title {
+        font-size: 1.5rem;
+        text-align: center;
+        padding: 10px;
+    }
+    .contact-wrapper {
+        flex-direction: column;
+        padding: 40px 20px;
+    }
+    
+    .text-container {
+        max-width: 90%;
+        text-align: center;
+    }
+    .section,
+    .video-box {
+      max-width: 100%;
+    }
+}
+
+@media (max-width: 600px) {
+    .monarch-info {
+      flex-direction: column;
+      text-align: center;
+      align-items: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .flying-bee {
+      display: none;
+    }
+    .minor-images {
+        grid-template-columns: 1fr;
+      }
+}
+  
+  

@@ -5,48 +5,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
     <title>How We Count Insects - BloomAir</title>
+    <link rel="stylesheet" href="style.css">
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f0f8ff;
-            color: #333;
-            text-align: center;
-            margin: 0;
-            padding: 20px;
-        }
-        header { 
-            background-color: rgba(0, 0, 0, 0.6); 
-            padding: 1rem; 
-        }
-        .buttons a { 
-            display: inline-block; 
-            padding: 12px 24px; 
-            margin: 5px;
-            background-color: #4CAF50; 
-            color: #fff; 
-            text-decoration: none; 
-            border-radius: 5px; 
-            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
-        }
-        .buttons a:hover {
-            background-color: #45a049;
-        }
-        .content {
-            max-width: 900px;
-            margin: 0 auto;
-            text-align: left;
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-        .container {
-      display: flex;
-      gap: 40px;
-      padding: 30px;
-    }
-
+      .content {
+        max-width: 900px;
+        margin: 0 auto;
+        text-align: left;
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      }
+      .container {
+        display: flex;
+        gap: 40px;
+        padding: 30px;
+      }
     .section {
       flex: 1;
       background-color: #ffffff;
@@ -55,7 +31,6 @@
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
       text-align: justify;
     }
-
     .video-box {
       flex: 1;
       max-width: 600px;
@@ -67,34 +42,30 @@
       align-items: flex-start;
       justify-content: center;
     }
-
     video {
       width: 100%;
       height: auto;
       border-radius: 10px;
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     }
-
+    .video-box img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+    
     .nav-container {
       max-width: 1200px;
       margin: 0 auto;
       padding: 0 20px;
     }
-
     </style>
 </head>
 <body>
-    <header>
-        <div class="buttons">
-            <a href="index.html">Home</a>
-            <a href="contact.html">Contact</a>
-            <a href="why_bloomair.html">About BloomAir</a>
-            <a href="native_insects.html">Native Insects</a>
-            <a href="native_plants.html">Native Plants</a>
-            <a href="real_time_data.html">Real Time Data</a>
-            <a href="what_to_do.html">Join the Buzz</a>
-        </div>
-    </header>
+    <site-header></site-header>
+    <script src="components.js"></script>
+
 
  <!-- Title -->
  <h1 class="page-title">How We Count Insects Using Computer Vision 🧠📹🐜</h1>
@@ -132,7 +103,7 @@
 
    <!-- Right Section -->
    <div class="video-box">
-     <img src="videos/ant_detection.gif" alt="Ant detection demo" style="max-width: 100%; border-radius: 10px;" />
+      <img src="assets/videos/ant_detection.gif" alt="Ant detection demo" />
    </div>
  </div>
 </body>

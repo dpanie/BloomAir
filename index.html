@@ -3,155 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
     <title>BloomAir</title>
+    <link rel="stylesheet" href="style.css">
+    
     <style>
-        body { 
-            font-family: Arial, sans-serif; 
-            background: url('images/background.jpg') no-repeat center center fixed; 
-            background-size: cover; 
-            backdrop-filter: blur(10px); 
-            color: #fff; 
-            text-align: center; 
-            margin: 0; 
-            padding: 0; 
-            display: flex;
-            flex-direction: column;
-            height: 100vh;
-            justify-content: space-between;
-        }
-        header { 
-            background-color: rgba(0, 0, 0, 0.6); 
-            padding: 1rem; 
-        }
-        .buttons { 
-            margin: 10px 0; 
-        }
-        .buttons a { 
-            display: inline-block; 
-            padding: 12px 24px; 
-            margin: 5px;
-            background-color: #4CAF50; 
-            color: #fff; 
-            text-decoration: none; 
-            border-radius: 5px; 
-            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
-        }
-        .buttons a:hover {
-            background-color: #45a049;
-        }
-        .main-title {
-            margin-top: 10vh;
-        }
-        .main-title h1 {
-            font-size: 4rem;
-            color: #fff; /* Changed text color to white for better contrast */
-        }
-        .main-title h2 {
-            font-size: 1.5rem;
-            color: #fff; /* Changed text color to white for better contrast */
-        }
-        .footer {
-            background-color: rgba(0, 0, 0, 0.6);
-            padding: 1rem;
-            font-size: 0.9rem;
-        }
+      body { 
+          font-family: Arial, sans-serif; 
+          background: url('assets/images/background.jpg') no-repeat center center fixed; 
+          background-size: cover; 
+          backdrop-filter: blur(10px); 
+          color: #fff; 
+          text-align: center; 
+          margin: 0; 
+          padding: 0; 
+          display: flex;
+          flex-direction: column;
+          min-height: 100vh;
+          justify-content: space-between;
+      }
     </style>
 </head>
+
 <body>
-    <header>
-        <div class="buttons">
-            <a href="contact.html">Contact</a>
-            <a href="why_bloomair.html">About BloomAir</a>
-            <a href="native_insects.html">Native Insects</a>
-            <a href="native_plants.html">Native Plants</a>
-            <a href="real_time_data.html">Real Time Data</a>
-            <a href="what_to_do.html">Join the Buzz</a>
-        </div>
-    </header>
+    <site-header></site-header>
+    <script src="components.js"></script>
+   
+  <div class="main-title">
+    <h1>Welcome to BloomAIR</h1>
+    <h2>Where Nature Meets Intelligence, using Artificial Intelligence for Restoration</h2>
+    <div class="bee-alert">Click anywhere to wake up the bees!</div>
 
-    <div class="main-title">
-        <h1>Welcome to BloomAIR</h1>
-        <h2>Where Nature Meets Intelligence, using Artificial Intelligence for Restoration</h2>
-        <div style="
-            background-color: white;
-            color: black;
-            padding: 1rem;
-            margin: 1rem auto;
-            width: fit-content;
-            max-width: 80%;
-            border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-            font-style: italic;
-            font-size: 1rem;
-            text-align: center;
-              ">
-            Click anywhere to wake up the bees!
   </div>
-    </div>
 
-    <div class="footer">
-        This site was created with the support of Bedford 2030 Greenlight Award 2025
-    </div>
-    <script>
-    (function(){
-      if(!window.chatbase || window.chatbase("getState") !== "initialized") {
-        window.chatbase = (...arguments) => {
-          if(!window.chatbase.q){ window.chatbase.q = [] }
-          window.chatbase.q.push(arguments)
-        };
-        window.chatbase = new Proxy(window.chatbase, {
-          get(target, prop) {
-            if(prop === "q") { return target.q }
-            return (...args) => target(prop, ...args)
-          }
-        })
-      }
-
-      const onLoad = function() {
-        const script = document.createElement("script");
-        script.src = "https://www.chatbase.co/embed.min.js";
-        script.id = "BdBoaYIy5F0zw7U4KyLKC";  // <-- Ton chatbotId ici
-        script.domain = "www.chatbase.co";
-        document.body.appendChild(script);
-      };
-
-      if(document.readyState === "complete") {
-        onLoad();
-      } else {
-        window.addEventListener("load", onLoad);
-      }
-    })();
-  </script>
-    
-<audio id="beeBuzz" src="buzz.m4a" preload="auto"></audio>
-<script>
-  function playBuzzOnce() {
-    const buzz = document.getElementById("beeBuzz");
-    if (buzz) {
-      buzz.play().catch(e => {
-        console.log("Still blocked:", e);
-      });
-    }
-    // Remove the event listener after first play
-    document.removeEventListener("click", playBuzzOnce);
-  }
-    
-  function playBuzzOnClick() {
-    const buzz = document.getElementById("beeBuzz");
-    if (buzz) {
-      buzz.currentTime = 0; // Rewind to start so it can replay quickly
-      buzz.play().catch(e => {
-        console.log("Audio play was blocked:", e);
-      });
-    }
-  }
-  // document.addEventListener("click", playBuzzOnce);
-  document.addEventListener("click", playBuzzOnClick);
-
-</script>
-
-
-    
+  <div class="footer">
+    This site was created with the support of Bedford 2030 Greenlight Award 2025
+  </div>
+  
 <!-- Flying Bee -->
 <div class="flying-bee">🐝</div>
 
@@ -190,6 +78,35 @@
   }
 </style>
 
+<script src="chatscript.js"></script>
+
+<audio id="beeBuzz" src="assets/buzz.m4a" preload="auto"></audio>
+
+<script>
+  function playBuzzOnce() {
+    const buzz = document.getElementById("beeBuzz");
+    if (buzz) {
+      buzz.play().catch(e => {
+        console.log("Still blocked:", e);
+      });
+    }
+    // Remove the event listener after first play
+    document.removeEventListener("click", playBuzzOnce);
+  }
+    
+  function playBuzzOnClick() {
+    const buzz = document.getElementById("beeBuzz");
+    if (buzz) {
+      buzz.currentTime = 0; // Rewind to start so it can replay quickly
+      buzz.play().catch(e => {
+        console.log("Audio play was blocked:", e);
+      });
+    }
+  }
+  // document.addEventListener("click", playBuzzOnce);
+  document.addEventListener("click", playBuzzOnClick);
+
+</script>
 
 </body>
 </html>

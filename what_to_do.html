@@ -1,39 +1,14 @@
 <!-- Todo: modify text, create getform account and endpoint, create a publish surve, update dummy shelters. Reflect on purpose -->
 
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>What to Do - BloomAir</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="chatscript.js" defer></script>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f0fff8;
-            color: #333;
-            text-align: center;
-            margin: 0;
-            padding: 20px;
-        }
-        header { 
-            background-color: rgba(0, 0, 0, 0.6); 
-            padding: 1rem; 
-        }
-        .buttons a { 
-            display: inline-block; 
-            padding: 12px 24px; 
-            margin: 5px;
-            background-color: #4CAF50; 
-            color: #fff; 
-            text-decoration: none; 
-            border-radius: 5px; 
-            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
-        }
-        .buttons a:hover {
-            background-color: #45a049;
-        }
         .content, .submission, .carousel {
             max-width: 800px;
             margin: 20px auto;
@@ -82,16 +57,9 @@
     </style>
 </head>
 <body>
-    <header>
-        <div class="buttons">
-            <a href="index.html">Home</a>
-            <a href="contact.html">Contact</a>
-            <a href="why_bloomair.html">About BloomAir</a>
-            <a href="native_insects.html">Native Insects</a>
-            <a href="native_plants.html">Native Plants</a>
-            <a href="real_time_data.html">Real Time Data</a>
-        </div>
-    </header>
+        <site-header></site-header>
+        <script src="components.js"></script>
+
 
     <div class="content">
         <h1>How to Support Native Pollinators</h1>
@@ -125,40 +93,11 @@
     <div class="carousel">
         <h1>Community Shelters Showcase</h1>
         <div id="carousel-container">
-            <img src="images/shelter1.jpg" alt="Shelter 1">
-            <img src="images/shelter2.jpg" alt="Shelter 2">
-            <img src="images/shelter3.jpg" alt="Shelter 3">
+            <img src="assets/images/shelter1.jpg" alt="Shelter 1">
+            <img src="assets/images/shelter2.jpg" alt="Shelter 2">
+            <img src="assets/images/shelter3.jpg" alt="Shelter 3">
         </div>
     </div>
-    <script>
-    (function(){
-      if(!window.chatbase || window.chatbase("getState") !== "initialized") {
-        window.chatbase = (...arguments) => {
-          if(!window.chatbase.q){ window.chatbase.q = [] }
-          window.chatbase.q.push(arguments)
-        };
-        window.chatbase = new Proxy(window.chatbase, {
-          get(target, prop) {
-            if(prop === "q") { return target.q }
-            return (...args) => target(prop, ...args)
-          }
-        })
-      }
-
-      const onLoad = function() {
-        const script = document.createElement("script");
-        script.src = "https://www.chatbase.co/embed.min.js";
-        script.id = "BdBoaYIy5F0zw7U4KyLKC";  // <-- Ton chatbotId ici
-        script.domain = "www.chatbase.co";
-        document.body.appendChild(script);
-      };
-
-      if(document.readyState === "complete") {
-        onLoad();
-      } else {
-        window.addEventListener("load", onLoad);
-      }
-    })();
-    </script>
+    
 </body>
 </html>

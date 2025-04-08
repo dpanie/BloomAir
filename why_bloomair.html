@@ -39,9 +39,12 @@
             gap: 20px;
         }
         .main-image {
-            width: 50%;
+            width: 100%;
+            max-width: 600px;
+            height: auto;
             border-radius: 10px;
         }
+
         .minor-images {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -58,23 +61,15 @@
     </style>
 </head>
 <body>
-    <header>
-        <div class="buttons">
-            <a href="index.html">Home</a>
-            <a href="contact.html">Contact</a>
-            <a href="native_insects.html">Native Insects</a>
-            <a href="native_plants.html">Native Plants</a>
-            <a href="real_time_data.html">Real Time Data</a>
-            <a href="what_to_do.html">Join the Buzz</a>
-        </div>
-    </header>
-
+        <site-header></site-header>
+        <script src="components.js"></script>
+ 
     <div class="content">
 
         <h1>Why BloomAIR</h1>
         <h2>Importance of Native Pollinators</h2>
         <div class="monarch-info">
-            <img src="images/monarch.jpg" alt="Monarch Butterfly">
+            <img src="assets/images/monarch.jpg" alt="Monarch Butterfly">
             <p>Did you know the population of monarchs has declined by 75-90% since the 1990s? To learn more: <a href="https://www.worldwildlife.org/stories/eastern-migratory-monarch-butterfly-populations-decrease-by-59-in-2024?">click here</a></p>
         </div>
 
@@ -105,12 +100,12 @@
 
         <h2>How BloomAIR Works</h2>
         <div class="image-section">
-            <img src="images/background.jpg" alt="Main BloomAir Image" class="main-image">
+            <img src="assets/images/background.jpg" alt="Main BloomAir Image" class="main-image">
             <div class="minor-images">
-                <img src="images/image1.jpg" alt="Image 1" class="minor-image">
-                <img src="images/image2.jpg" alt="Image 2" class="minor-image">
-                <img src="images/image3.jpg" alt="Image 3" class="minor-image">
-                <img src="images/image4.jpg" alt="Image 4" class="minor-image">
+                <img src="assets/images/image1.jpg" alt="Image 1" class="minor-image">
+                <img src="assets/images/image2.jpg" alt="Image 2" class="minor-image">
+                <img src="assets/images/image3.jpg" alt="Image 3" class="minor-image">
+                <img src="assets/images/image4.jpg" alt="Image 4" class="minor-image">
             </div>
         </div>
         <p class="caption">The BloomAIR shelter is equipped with sensors powered by solar panel</p>

@@ -35,6 +35,22 @@ body {
 .buttons a:hover {
     background-color: #45a049;
 }
+.carousel {
+    display: flex;
+    overflow-x: auto;
+    gap: 15px;
+    padding: 10px 0;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+}
+.carousel img {
+    width: 200px;
+    max-width: 80vw;
+    height: auto;
+    flex: 0 0 auto;
+    border-radius: 10px;
+    scroll-snap-align: start;
+}
 .contact-wrapper {
     display: flex;
     justify-content: center;
@@ -201,9 +217,7 @@ header {
     }
     .carousel img {
         width: 150px;
-        max-width: 100%;
-        height: auto;
-    }    
+    }  
     .chart-section,
     .data-section {
       padding: 15px;

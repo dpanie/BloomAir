@@ -36,21 +36,24 @@ body {
     background-color: #45a049;
 }
 .carousel {
-    display: flex;
-    overflow-x: auto;
-    gap: 15px;
-    padding: 10px 0;
-    scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch;
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  gap: 16px;
+  padding: 10px 16px; /* this adds spacing on the left and right */
 }
+
 .carousel img {
-    width: 200px;
-    max-width: 80vw;
-    height: auto;
-    flex: 0 0 auto;
-    border-radius: 10px;
-    scroll-snap-align: start;
+  flex: 0 0 auto;
+  width: 160px;
+  max-width: 80vw;
+  height: auto;
+  border-radius: 10px;
+  scroll-snap-align: start;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
+
 .contact-wrapper {
     display: flex;
     justify-content: center;

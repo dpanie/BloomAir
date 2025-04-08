@@ -41,9 +41,8 @@ body {
   scroll-snap-type: x mandatory;
   -webkit-overflow-scrolling: touch;
   gap: 16px;
-  padding: 10px 16px; /* this adds spacing on the left and right */
+  padding: 10px 16px; /* adds space left and right */
 }
-
 .carousel img {
   flex: 0 0 auto;
   width: 160px;

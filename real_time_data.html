@@ -96,19 +96,24 @@
 
         <div class="chart-section">
             <h2>Temperature</h2>
-            <iframe width="450" height="260" style="border: 1px solid #cccccc;" src="https://thingspeak.com/channels/2916851/widgets/1057377"></iframe></div>
+            <iframe width="450" height="260" style="border: 1px solid #cccccc;" src="https://thingspeak.com/channels/2916851/widgets/1057377"></iframe>
         </div>
         <div class="chart-section">
             <h2>Humidity</h2>
-            <iframe width="450" height="260" style="border: 1px solid #cccccc;" src="https://thingspeak.com/channels/2916851/widgets/1057381"></iframe>
+            <iframe width="450" height="260" style="border: 1px solid #cccccc;" src="https://thingspeak.com/channels/2916851/widgets/1057380"></iframe>
         </div>
         <div class="chart-section">
             <h2>CO₂</h2>
-            <iframe width="450" height="260" style="border: 1px solid #cccccc;" src="https://thingspeak.com/channels/2916851/widgets/1057380"></iframe>
+            <iframe width="450" height="260" style="border: 1px solid #cccccc;" src="https://thingspeak.com/channels/2916851/widgets/1057381"></iframe> <iframe width="450" height="260" style="border: 1px solid #cccccc;" src="https://thingspeak.com/channels/YOUR_CHANNEL_ID/widgets/YOUR_CO2_WIDGET_ID"></iframe>
         </div>
         <div class="chart-section">
             <h2>Noise</h2>
             <iframe width="450" height="260" style="border: 1px solid #cccccc;" src="https://thingspeak.com/channels/2916851/widgets/1057382"></iframe>
+        </div>
+
+        <div class="chart-section">
+            <h2>Insect Activity Over Time</h2>
+            <canvas id="insectChart" width="400" height="200"></canvas>
         </div>
 
         <div class="insect-explainer-bubble">
@@ -127,6 +132,43 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function () {
+            // Insect data loader (assumes you have data/insect_history.json available)
+            const insectCtx = document.getElementById('insectChart')?.getContext('2d');
+            const insectChart = new Chart(insectCtx, {
+                type: 'line',
+                data: {
+                    labels: [],
+                    datasets: [
+                        {
+                            label: 'Average Ant Count',
+                            data: [],
+                            borderColor: 'darkgreen',
+                            fill: false
+                        }
+                    ]
+                }
+            });
+
+            fetch('data/insect_history.json')
+                .then(response => response.json())
+                .then(history => {
+                    history.forEach(entry => {
+                        const ts = entry.timestamp;
+                        const month = parseInt(ts.slice(0, 2), 10);
+                        const day = parseInt(ts.slice(2, 4), 10);
+                        const hour = parseInt(ts.slice(4, 6), 10);
+                        const minute = ts.slice(6, 8);
+                        const ampm = hour >= 12 ? 'PM' : 'AM';
+                        const hour12 = hour % 12 === 0 ? 12 : hour % 12;
+                        const label = `${new Date(2024, month - 1, day).toLocaleString('en-US', { month: 'short' })} ${day} ${hour12}:${minute} ${ampm}`;
+                        insectChart.data.labels.push(label);
+                        insectChart.data.datasets[0].data.push(entry.average);
+                    });
+                    insectChart.update();
+                })
+                .catch(err => console.error("Failed to load insect data:", err));
+
+            // Image loading
             function loadImages(folder, galleryId) {
                 const gallery = document.getElementById(galleryId);
                 gallery.innerHTML = "";

@@ -45,7 +45,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Function to fetch and update sensor data (mock data for now)
     async function fetchSensorData() {
         try {
-            const response = await fetch('https://api.thingspeak.com/channels/YOUR_CHANNEL_ID/feeds/last.json?api_key=YOUR_READ_API_KEY'); //or change endpoint
+            const response = await fetch('https://api.thingspeak.com/channels/2916851/feeds/last.json?api_key=ZFYS89BLKM4GW6PE'); //or change endpoint
             const data = await response.json();
     
             const parsedData = {

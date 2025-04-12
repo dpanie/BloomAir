@@ -21,14 +21,6 @@
             max-width: 100%;
             height: auto;
         }
-        .placeholder-info {
-            background-color: #f8f9fa;
-            border-left: 5px solid #4CAF50;
-            padding: 15px;
-            margin-top: 20px;
-            text-align: left;
-            font-style: italic;
-        }
         .carousel {
             display: flex;
             overflow-x: auto;
@@ -90,25 +82,22 @@
         <h1>Real Time Data</h1>
         <p>Use AI on live data from our environmental sensors monitoring our ecosystem.</p>
 
-        <div class="placeholder-info">
-            <p><strong>Note:</strong> Real-time data now pulled from ThingSpeak below:</p>
+        <!-- Zone for real-time value widgets -->
+        <div class="chart-section">
+            <h2>Live Sensor Readings</h2>
+            <iframe width="450" height="260" style="border: 1px solid #cccccc;" src="https://thingspeak.com/channels/2916851/widgets/XXXXXX"></iframe>
+            <iframe width="450" height="260" style="border: 1px solid #cccccc;" src="https://thingspeak.com/channels/2916851/widgets/XXXXXX"></iframe>
+            <iframe width="450" height="260" style="border: 1px solid #cccccc;" src="https://thingspeak.com/channels/2916851/widgets/XXXXXX"></iframe>
+            <iframe width="450" height="260" style="border: 1px solid #cccccc;" src="https://thingspeak.com/channels/2916851/widgets/XXXXXX"></iframe>
         </div>
 
+        <!-- Zone for data visualization widgets (graphs) -->
         <div class="chart-section">
-            <h2>Temperature</h2>
+            <h2>Sensor Graphs</h2>
             <iframe width="450" height="260" style="border: 1px solid #cccccc;" src="https://thingspeak.com/channels/2916851/charts/1?bgcolor=%23ffffff&color=%23d62020&dynamic=true&results=60&type=line&update=15"></iframe>
-        </div>
-        <div class="chart-section">
-            <h2>Humidity</h2>
-            <iframe width="450" height="260" style="border: 1px solid #cccccc;" src="https://thingspeak.com/channels/2916851/widgets/1057390"></iframe>
-        </div>
-        <div class="chart-section">
-            <h2>CO₂</h2>
-            <iframe width="450" height="260" style="border: 1px solid #cccccc;" src="https://thingspeak.com/channels/2916851/widgets/1057388"></iframe>
-        </div>
-        <div class="chart-section">
-            <h2>Noise</h2>
-            <iframe width="450" height="260" style="border: 1px solid #cccccc;" src="https://thingspeak.com/channels/2916851/widgets/1057394"></iframe>
+            <iframe width="450" height="260" style="border: 1px solid #cccccc;" src="https://thingspeak.com/channels/2916851/charts/2?bgcolor=%23ffffff&color=%233c8dbc&dynamic=true&results=60&type=line&update=15"></iframe>
+            <iframe width="450" height="260" style="border: 1px solid #cccccc;" src="https://thingspeak.com/channels/2916851/charts/3?bgcolor=%23ffffff&color=%2300a65a&dynamic=true&results=60&type=line&update=15"></iframe>
+            <iframe width="450" height="260" style="border: 1px solid #cccccc;" src="https://thingspeak.com/channels/2916851/charts/4?bgcolor=%23ffffff&color=%23f39c12&dynamic=true&results=60&type=line&update=15"></iframe>
         </div>
 
         <div class="chart-section">

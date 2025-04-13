@@ -21,6 +21,14 @@
             max-width: 100%;
             height: auto;
         }
+        .chart-section iframe {
+            width: 100%;
+            max-width: 450px;
+            height: 260px;
+            border: 1px solid #cccccc;
+            margin: 10px auto;
+            display: block;
+        }
         .carousel {
             display: flex;
             overflow-x: auto;
@@ -85,7 +93,7 @@
         <!-- Zone for real-time value widgets -->
         <div class="chart-section">
             <h2>Live Sensor Readings</h2>
-           <iframe width="450" height="260" style="border: 1px solid #cccccc;" src="https://thingspeak.com/channels/2916851/widgets/1057377"></iframe>
+            <iframe width="450" height="260" style="border: 1px solid #cccccc;" src="https://thingspeak.com/channels/2916851/widgets/1057377"></iframe>
             <iframe width="450" height="260" style="border: 1px solid #cccccc;" src="https://thingspeak.com/channels/2916851/widgets/1057380"></iframe>
             <iframe width="450" height="260" style="border: 1px solid #cccccc;" src="https://thingspeak.com/channels/2916851/widgets/1057381"></iframe>
             <iframe width="450" height="260" style="border: 1px solid #cccccc;" src="https://thingspeak.com/channels/2916851/widgets/1057382"></iframe>
@@ -94,10 +102,10 @@
         <!-- Zone for data visualization widgets (graphs) -->
         <div class="chart-section">
             <h2>Sensor Graphs</h2>
-            <iframe width="450" height="260" style="border: 1px solid #cccccc;" src="https://thingspeak.com/channels/2916851/charts/1?bgcolor=%23ffffff&color=%23d62020&dynamic=true&results=60&type=line&update=15"></iframe>
-            <iframe width="450" height="260" style="border: 1px solid #cccccc;" src="https://thingspeak.com/channels/2916851/charts/2?bgcolor=%23ffffff&color=%233c8dbc&dynamic=true&results=60&type=line&update=15"></iframe>
-            <iframe width="450" height="260" style="border: 1px solid #cccccc;" src="https://thingspeak.com/channels/2916851/charts/3?bgcolor=%23ffffff&color=%2300a65a&dynamic=true&results=60&type=line&update=15"></iframe>
-            <iframe width="450" height="260" style="border: 1px solid #cccccc;" src="https://thingspeak.com/channels/2916851/charts/4?bgcolor=%23ffffff&color=%23f39c12&dynamic=true&results=60&type=line&update=15"></iframe>
+            <iframe src="https://thingspeak.com/channels/2916851/charts/1?bgcolor=%23ffffff&color=%23d62020&dynamic=true&results=60&type=line&update=15"></iframe>
+            <iframe src="https://thingspeak.com/channels/2916851/charts/2?bgcolor=%23ffffff&color=%233c8dbc&dynamic=true&results=60&type=line&update=15"></iframe>
+            <iframe src="https://thingspeak.com/channels/2916851/charts/3?bgcolor=%23ffffff&color=%2300a65a&dynamic=true&results=60&type=line&update=15"></iframe>
+            <iframe src="https://thingspeak.com/channels/2916851/charts/4?bgcolor=%23ffffff&color=%23f39c12&dynamic=true&results=60&type=line&update=15"></iframe>
         </div>
 
         <div class="chart-section">
@@ -108,7 +116,7 @@
         <div class="insect-explainer-bubble">
             🦋 Wonder how we counted the insects?<br>
             👉 <a href="how_we_count.html">Click here to learn how we used computer vision!</a>
-        </div>        
+        </div>
 
         <div class="data-section">
             <h2>Photos of Yesterday - <span id="yesterdayDate"></span></h2>
@@ -121,7 +129,6 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            // Insect data loader (assumes you have data/insect_history.json available)
             const insectCtx = document.getElementById('insectChart')?.getContext('2d');
             const insectChart = new Chart(insectCtx, {
                 type: 'line',
@@ -157,7 +164,6 @@
                 })
                 .catch(err => console.error("Failed to load insect data:", err));
 
-            // Image loading
             function loadImages(folder, galleryId) {
                 const gallery = document.getElementById(galleryId);
                 gallery.innerHTML = "";

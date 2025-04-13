@@ -21,13 +21,15 @@
             max-width: 100%;
             height: auto;
         }
-        .chart-section iframe {
+        .iframe-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 10px;
+        }
+        .iframe-grid iframe {
             width: 100%;
-            max-width: 450px;
             height: 260px;
             border: 1px solid #cccccc;
-            margin: 10px auto;
-            display: block;
         }
         .carousel {
             display: flex;
@@ -93,19 +95,23 @@
         <!-- Zone for real-time value widgets -->
         <div class="chart-section">
             <h2>Live Sensor Readings</h2>
-            <iframe width="450" height="260" style="border: 1px solid #cccccc;" src="https://thingspeak.com/channels/2916851/widgets/1057377"></iframe>
-            <iframe width="450" height="260" style="border: 1px solid #cccccc;" src="https://thingspeak.com/channels/2916851/widgets/1057380"></iframe>
-            <iframe width="450" height="260" style="border: 1px solid #cccccc;" src="https://thingspeak.com/channels/2916851/widgets/1057381"></iframe>
-            <iframe width="450" height="260" style="border: 1px solid #cccccc;" src="https://thingspeak.com/channels/2916851/widgets/1057382"></iframe>
+            <div class="iframe-grid">
+                <iframe src="https://thingspeak.com/channels/2916851/widgets/1057377"></iframe>
+                <iframe src="https://thingspeak.com/channels/2916851/widgets/1057380"></iframe>
+                <iframe src="https://thingspeak.com/channels/2916851/widgets/1057381"></iframe>
+                <iframe src="https://thingspeak.com/channels/2916851/widgets/1057382"></iframe>
+            </div>
         </div>
 
         <!-- Zone for data visualization widgets (graphs) -->
         <div class="chart-section">
             <h2>Sensor Graphs</h2>
-            <iframe src="https://thingspeak.com/channels/2916851/charts/1?bgcolor=%23ffffff&color=%23d62020&dynamic=true&results=60&type=line&update=15"></iframe>
-            <iframe src="https://thingspeak.com/channels/2916851/charts/2?bgcolor=%23ffffff&color=%233c8dbc&dynamic=true&results=60&type=line&update=15"></iframe>
-            <iframe src="https://thingspeak.com/channels/2916851/charts/3?bgcolor=%23ffffff&color=%2300a65a&dynamic=true&results=60&type=line&update=15"></iframe>
-            <iframe src="https://thingspeak.com/channels/2916851/charts/4?bgcolor=%23ffffff&color=%23f39c12&dynamic=true&results=60&type=line&update=15"></iframe>
+            <div class="iframe-grid">
+                <iframe src="https://thingspeak.com/channels/2916851/charts/1?bgcolor=%23ffffff&color=%23d62020&dynamic=true&results=60&type=line&update=15"></iframe>
+                <iframe src="https://thingspeak.com/channels/2916851/charts/2?bgcolor=%23ffffff&color=%233c8dbc&dynamic=true&results=60&type=line&update=15"></iframe>
+                <iframe src="https://thingspeak.com/channels/2916851/charts/3?bgcolor=%23ffffff&color=%2300a65a&dynamic=true&results=60&type=line&update=15"></iframe>
+                <iframe src="https://thingspeak.com/channels/2916851/charts/4?bgcolor=%23ffffff&color=%23f39c12&dynamic=true&results=60&type=line&update=15"></iframe>
+            </div>
         </div>
 
         <div class="chart-section">

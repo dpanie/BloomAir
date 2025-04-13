@@ -22,19 +22,21 @@
             height: auto;
         }
         .iframe-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
+            display: flex;
+            flex-wrap: wrap;
             gap: 20px;
-        }
-        @media (max-width: 768px) {
-            .iframe-grid {
-                grid-template-columns: 1fr;
-            }
+            justify-content: space-between;
         }
         .iframe-grid iframe {
-            width: 100%;
+            flex: 1 1 calc(50% - 10px);
+            min-width: 300px;
             height: 260px;
             border: 1px solid #cccccc;
+        }
+        @media (max-width: 768px) {
+            .iframe-grid iframe {
+                flex: 1 1 100%;
+            }
         }
         .carousel {
             display: flex;

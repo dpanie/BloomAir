@@ -100,12 +100,14 @@
         <!-- Zone for real-time value widgets -->
         <div class="chart-section">
             <h2>Live Sensor Readings</h2>
-            <div class="iframe-grid">
-                <iframe width="450" height="260" style="border: 1px solid #cccccc;" src="https://thingspeak.com/channels/2916851/widgets/1058240"></iframe>
-                <iframe width="450" height="260" style="border: 1px solid #cccccc;" src="https://thingspeak.com/channels/2916851/widgets/1058241"></iframe>
-                <iframe width="450" height="260" style="border: 1px solid #cccccc;" src="https://thingspeak.com/channels/2916851/widgets/1058243"></iframe>
-                <iframe width="450" height="260" style="border: 1px solid #cccccc;" src="https://thingspeak.com/channels/2916851/widgets/1058244"></iframe>
+            <div class="conditions-container">
+                <h2>Live Sensor Values</h2>
+                <p id="temp">🌡️ Temp: -- °C</p>
+                <p id="humidity">💧 Humidity: -- %</p>
+                <p id="co2">🌬️ CO2: -- ppm</p>
+                <p id="particles">🌫️ Particles: -- μg/m³</p>
             </div>
+
         </div>
 
         <!-- Zone for data visualization widgets (graphs) -->
@@ -200,5 +202,27 @@
             loadImages('assets/images/photos of today', 'todayGallery');
         });
     </script>
+
+    <script>
+    async function loadSensorData() {
+        try {
+            const res = await fetch("https://api.thingspeak.com/channels/2916851/feeds.json?results=1");
+            const data = await res.json();
+            const feed = data.feeds[0];
+
+            document.getElementById("temp").textContent = `🌡️ Temp: ${feed.field1} °C`;
+            document.getElementById("humidity").textContent = `💧 Humidity: ${feed.field2} %`;
+            document.getElementById("co2").textContent = `🌬️ CO2: ${feed.field3} ppm`;
+            document.getElementById("particles").textContent = `🌫️ Particles: ${feed.field4} μg/m³`;
+        } catch (err) {
+            console.error("Error fetching sensor data:", err);
+        }
+    }
+
+    // Load on page load and refresh every 15 seconds
+    loadSensorData();
+    setInterval(loadSensorData, 15000);
+    </script>
+
 </body>
 </html>

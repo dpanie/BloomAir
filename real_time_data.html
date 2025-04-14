@@ -87,6 +87,36 @@
             color: #054e31;
             font-weight: bold;
         }
+        .live-sensor-box {
+            position: absolute;
+            top: 30px;
+            right: 30px;
+            width: 220px;
+            background-color: #ffffff;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            font-size: 0.9rem;
+            z-index: 100;
+        }
+
+    .live-sensor-box h2 {
+        font-size: 1rem;
+        margin-top: 0;
+    }
+
+    .live-sensor-box p {
+        margin: 5px 0;
+    }
+
+    @media (max-width: 768px) {
+        .live-sensor-box {
+            position: static;
+            margin-top: 10px;
+            width: 100%;
+        }
+    }
+
     </style>
 </head>
 <body>
@@ -97,18 +127,13 @@
         <h1>Real Time Data</h1>
         <p>Use AI on live data from our environmental sensors monitoring our ecosystem.</p>
 
-        <!-- Zone for real-time value widgets -->
-        <div class="chart-section">
-            <h2>Live Sensor Readings</h2>
-            <div class="conditions-container">
-                <h2>Live Sensor Values</h2>
-                <p id="temp">🌡️ Temp: -- °C</p>
-                <p id="humidity">💧 Humidity: -- %</p>
-                <p id="co2">🌬️ CO2: -- ppm</p>
-                <p id="particles">🥁 Noise: -- dB</p>
-            </div>
-
-        </div>
+    <div class="live-sensor-box">
+        <h2>Live Sensor Values</h2>
+        <p id="temp">🌡️ Temp: -- °C</p>
+        <p id="humidity">💧 Humidity: -- %</p>
+        <p id="co2">🌬️ CO2: -- ppm</p>
+        <p id="sound">🥁 Sound: -- dB</p>
+    </div>
 
         <!-- Zone for data visualization widgets (graphs) -->
         <div class="chart-section">
@@ -213,7 +238,7 @@
             document.getElementById("temp").textContent = `🌡️ Temp: ${feed.field1} °C`;
             document.getElementById("humidity").textContent = `💧 Humidity: ${feed.field2} %`;
             document.getElementById("co2").textContent = `🌬️ CO2: ${feed.field3} ppm`;
-            document.getElementById("particles").textContent = `🌫️ Particles: ${feed.field4} μg/m³`;
+            document.getElementById("particles").textContent = `🥁 Sound: ${feed.field4} dB`;
         } catch (err) {
             console.error("Error fetching sensor data:", err);
         }

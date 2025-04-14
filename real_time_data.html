@@ -236,9 +236,9 @@
             const feed = data.feeds[0];
 
             document.getElementById("temp").textContent = `🌡️ Temp: ${feed.field1} °C`;
-            document.getElementById("humidity").textContent = `💧 Humidity: ${feed.field2} %`;
-            document.getElementById("co2").textContent = `🌬️ CO2: ${feed.field3} ppm`;
-            document.getElementById("particles").textContent = `🥁 Sound: ${feed.field4} dB`;
+            document.getElementById("humidity").textContent = `💧 Humidity: ${feed.field3} %`;
+            document.getElementById("co2").textContent = `🌬️ CO2: ${feed.field2} ppm`;
+            document.getElementById("sound").textContent = `🥁 Sound: ${feed.field4} dB`;
         } catch (err) {
             console.error("Error fetching sensor data:", err);
         }

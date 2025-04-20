@@ -120,7 +120,7 @@ header {
 }
 .image-section {
     display: grid;
-    grid-template-columns: 2fr 1fr;
+    grid-template-columns: 1.3fr 1.7fr; /* Slightly reduce left, expand right */
     gap: 20px;
 }
 .main-title {
@@ -139,6 +139,18 @@ header {
     grid-template-columns: 1fr 1fr;
     gap: 10px;
 }
+.minor-images img:first-child {
+    grid-column: 1 / -1; /* Span full width of the right column */
+    width: 100%;
+    border-radius: 10px;
+}
+.minor-images img:first-child {
+    grid-column: 1 / -1;
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Add glow to sensor image */
+}
+
 .monarch-info {
     display: flex;
     align-items: center;

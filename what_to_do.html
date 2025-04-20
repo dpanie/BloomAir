@@ -1,5 +1,3 @@
-<!-- Todo: modify text, create getform account and endpoint, create a publish surve, update dummy shelters. Reflect on purpose -->
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,23 +16,28 @@
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
+
         .content h1, .submission h1, .carousel h1 {
             text-align: center;
         }
+
         .submission form {
             display: grid;
             gap: 15px;
         }
+
         .submission label {
             display: block;
             margin-bottom: 10px;
         }
+
         .submission input, .submission textarea {
             width: 100%;
             padding: 8px;
             border: 1px solid #ccc;
             border-radius: 5px;
         }
+
         .submission button {
             background-color: #4CAF50;
             color: white;
@@ -46,20 +49,69 @@
             font-size: 16px;
             box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
         }
+
         .submission button:hover {
             background-color: #45a049;
         }
+
         .carousel img {
             max-width: 100%;
             border-radius: 10px;
             margin: 10px 0;
         }
+
+        .buzz-link {
+            background-color: #e0ffe0;
+            padding: 15px;
+            text-align: center;
+            margin-top: 20px;
+            border-radius: 25px;
+            font-weight: bold;
+            box-shadow: 2px 2px 6px rgba(0,0,0,0.1);
+        }
+
+        .buzz-link a {
+            text-decoration: none;
+            color: #2a7b2a;
+        }
+
+        .buzz-sidebar {
+            position: absolute;
+            top: 180px;
+            left: 20px;
+            background-color: #d9fdd3;
+            border-radius: 20px;
+            padding: 10px 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            color: #145214;
+            font-weight: bold;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .buzz-sidebar img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        body {
+            position: relative;
+        }
     </style>
 </head>
 <body>
-        <site-header></site-header>
-        <script src="components.js"></script>
+    <site-header></site-header>
+    <script src="components.js"></script>
 
+    <!-- Buzz Trailer Link with Bee Icon -->
+    <a href="buzz-trailer.html" class="buzz-sidebar">
+        <img src="assets/images/bee-icon.png" alt="Bee Icon">
+        Join the Buzz Trailer
+    </a>
 
     <div class="content">
         <h1>How to Support Native Pollinators</h1>
@@ -72,6 +124,11 @@
         <p><b>Be aware, speak to your community members.</b></p>
         <p>To make sure you have gotten it all clear, take our survey <a href="https://docs.google.com/forms/d/1jYrA_pelnhg5QmSX_sdbX8QQ4_sqdzPe2BO16hFAt1A/viewform?edit_requested=true&pli=1">Here</a>.</p>
         <p>Useful resource to learn more: <a href="https://www.sunywcc.edu/about/npc/">The Native Plant Center</a>.</p>
+
+        <!-- Instagram Bubble -->
+        <div class="buzz-link">
+            <a href="https://www.instagram.com/bloomair.bedford/" target="_blank">🐝 Join the Buzz on Instagram</a>
+        </div>
     </div>
 
     <div class="submission">
@@ -98,6 +155,5 @@
             <img src="assets/images/shelter3.jpg" alt="Shelter 3">
         </div>
     </div>
-    
 </body>
 </html>
